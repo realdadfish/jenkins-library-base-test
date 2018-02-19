@@ -19,6 +19,7 @@ Common.PARALLEL(
     void doStep(BuildContext buildContext) {
         buildContext.getScriptEngine().sh "echo 'step 3'"
    }
+   String name() { "Step 3"}
   }
 )]).build();
 
