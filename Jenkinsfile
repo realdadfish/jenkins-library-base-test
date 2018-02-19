@@ -4,6 +4,7 @@ import com.ibm.oip.jenkins.steps.*;
 import com.ibm.oip.jenkins.steps.java.*;
 
 Pipeline master = new PipelineBuilder().forMaster().withSteps([
+Common.PARALLEL(
   new Step(){
     void doStep(BuildContext buildContext) {
         buildContext.getScriptEngine().sh "echo 'step 1'"
@@ -19,7 +20,7 @@ Pipeline master = new PipelineBuilder().forMaster().withSteps([
         buildContext.getScriptEngine().sh "echo 'step 3'"
    }
   }
-]).build();
+)]).build();
 
 new PipelineRunner()
   .withScriptEngine(this)
