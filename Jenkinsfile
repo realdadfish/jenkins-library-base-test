@@ -7,19 +7,26 @@ Pipeline master = new PipelineBuilder().forMaster().withSteps([
 Common.PARALLEL(
   new Step(){
     void doStep(BuildContext buildContext) {
-        buildContext.getScriptEngine().sh "echo 'step 1'"
+        buildContext.changeStage("foo") {
+           sh "echo 'step 1'"
+        }
    }
   },
      new Step(){
     void doStep(BuildContext buildContext) {
-        buildContext.getScriptEngine().sh "echo 'step 2'"
+        buildContext.changeStage("bar") {
+           sh "echo 'step 2-1'"
+        }
+        buildContext.changeStage("baz") {
+           sh "echo 'step 2-2'"
+        }
    }
    },
    new Step(){
     void doStep(BuildContext buildContext) {
         buildContext.getScriptEngine().sh "echo 'step 3'"
    }
-   String name() { "Step 3"}
+   String name() { return "Step 3" }
   }
 )]).build();
 
