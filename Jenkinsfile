@@ -1,4 +1,4 @@
-@Library('jenkins-library-base@f62818a2112da3cf9492ad55848a20c9d5591acf')
+@Library('jenkins-library-base@master')
 import com.ibm.oip.jenkins.*;
 import com.ibm.oip.jenkins.steps.*;
 import com.ibm.oip.jenkins.steps.java.*;
