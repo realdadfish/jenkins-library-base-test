@@ -19,6 +19,11 @@ Common.PARALLEL(
         }
         buildContext.changeStage("baz") {
            sh "echo 'step 2-2'"
+           checkout([
+                              $class           : 'GitSCM',
+                              branches         : "master",
+                              extensions       : [[$class: 'LocalBranch', localBranch: "master"], [$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: false]]
+                      ])
         }
    }
    },
