@@ -1,4 +1,4 @@
-@Library('jenkins-library-base')
+@Library('jenkins-library-base@deprecation-removal')
 import com.ibm.oip.jenkins.*;
 import com.ibm.oip.jenkins.steps.*;
 import com.ibm.oip.jenkins.steps.java.*;
